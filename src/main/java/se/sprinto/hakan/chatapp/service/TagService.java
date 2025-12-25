@@ -6,10 +6,10 @@ import org.springframework.stereotype.Service;
 import se.sprinto.hakan.chatapp.model.Tag;
 import se.sprinto.hakan.chatapp.repository.TagRepository;
 
-import java.util.ArrayList;
+
 import java.util.List;
 import java.util.NoSuchElementException;
-import java.util.Optional;
+
 
 @Service
 public class TagService {

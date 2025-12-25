@@ -9,8 +9,8 @@ import java.util.Optional;
 @Repository
 public interface TagRepository extends JpaRepository<Tag, Long> {
     boolean existsByTagName(String tagName);
-    Tag saveTag(String tagName);
+    Tag save(String tagName);
     Optional<Tag> findByTagName(String tagName);
-    Optional<Tag> deleteByTagName(String tagName);
+    void deleteByTagName(String tagName);
 
 }

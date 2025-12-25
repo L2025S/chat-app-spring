@@ -24,12 +24,15 @@ public class ProfileService {
     }
 
 
-    public Profile createProfile(Long profileId, String imageUrl, String description) {
-        if (profileRepository.existsById(profileId)) {
-            throw new IllegalStateException("The profile already exists: " + profileId);
+    public Profile createProfile(String username, String imageUrl, String description) {
+        User user = userRepository.findByUsername(username).orElseThrow(()->new NoSuchElementException("Username not found." + username));
+
+        if (profileRepository.findByUser(user).isPresent()){
+            throw new IllegalStateException("Profile already exists: " + username);
         }
 
         Profile profile = new Profile();
+        profile.setUser(user);
         profile.setImageUrl(imageUrl);
         profile.setDescription(description);
 
@@ -72,7 +75,7 @@ public class ProfileService {
     }
 
 
-    // ?????
+    // I would like to try to update the profile's image by using the username.
     public Profile updateImageUrlByUsername(String username, String newImageUrl) {
          User user = userRepository.findByUsername(username)
                  .orElseThrow(() -> new NoSuchElementException("User not found: " + username));
