@@ -1,0 +1,16 @@
+Databasmodellering
+
+Jag läste instruktionen och analyserade uppgiften på följande sätt:
+
+1. Hur många tabeller behöver skapas?
+2. Vilka relationer finns mellan dem? (@OneToOne, @OneToMany, @ManyToMany)
+3. Var ska foreign keys placeras?
+4. Ska relationerna använda fetchType.LAZY eller EAGER?
+5. Behövs CascadeType, och i så fall var?
+
+Efter att jag hade besvarat alla dessa frågor började jag arbeta med mina @Entity‑klasser först.
+Om jag skulle ångra mig är det mycket enklare att ändra i Entity‑klasserna än direkt i MySQL‑tabellerna.
+
+När jag var klar med Profile‑ och Tag‑klasserna fortsatte jag med SQL‑tabellerna.
+Jag dubbelkontrollerade kolumnnamn och andra detaljer. Om något blev fel använde jag bara kommandon i konsolen
+för att uppdatera tabellen.
